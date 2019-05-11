@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>VER DETALLES DEL REPUESTO</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    </head>
+
+    <body>
+        
+        <a class="btn btn-warning" th:href="@{/home}" th:text="'VOLVER AL MENU'"></a>
+        <a class="btn btn-warning" th:href="@{/verDetalles(id=${orden.getIdOrden()})}" th:text="'VOLVER A DETALLES DE ORDEN'"></a>
+        <div style="text-align: center">
+        	<h1 th:text="'DETALLES DEL REPUESTO: ' + ${repuesto}"></h1>        
+        </div>
+        
+        
+        <div style="text-align: center">
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>DESCRIPCION</th>
+                    <th>IMAGEN</th>
+                    <th>PRECIO UNITARIO</th>
+                </tr>
+                </thead>
+                <tbody>
+                 <tr>
+                    <td th:text="${repuesto}"></td>
+                    <td><img th:src="@{'/img/' + ${repuesto.getIdRepuesto()} + '.png'}" width="75" height="75"/></td>
+                    <td th:text="'$' + ${repuesto.getCosto()}" ></td>
+                </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </body>
+</html>

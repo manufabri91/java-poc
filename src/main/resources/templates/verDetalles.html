@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>VER DETALLES DE LA ORDEN</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    </head>
+
+    <body>
+        <a class="btn btn-warning" th:href="@{/home}" th:text="'VOLVER AL MENU'"></a>
+        <a class="btn btn-warning" th:href="@{/verOrdenesCli(id=${orden.getCliente().getIdCliente()})}" th:text="'VOLVER A ORDENES DEL CLIENTE'"></a>
+        <div style="text-align: center">
+        	<h1 th:text="'DETALLES DE LA ORDEN: ' + ${orden.getIdOrden()}"></h1>        
+        </div>
+        <p th:text="'Cliente: ' +  ${orden.getCliente()}"></p>
+        <p th:text="'Vehiculo: ' +  ${orden.getVehiculo()}"></p>
+        <p th:text="'Falla indicada: ' + ${orden.getFallaDeclarada()}"></p>
+        <p th:text="'Fecha de Ingreso: ' +  ${orden.getfIngreso()}"></p>
+        <p th:text="'Mecanico Asignado: ' + ${orden.getMecanico()}"></p>
+        
+        
+        <div style="text-align: center">
+        <h3>REPUESTOS UTILIZADOS</h3>
+            <table class="table">
+                <thead class="thead-dark">
+                <tr>
+                    <th>DESCRIPCION</th>
+                    <th>CANTIDAD</th>
+                    <th>TIEMPO DE REPARACION(EN HS.)</th>
+                    <th>PRECIO UNITARIO</th>
+                    <th>TOTAL</th>
+                </tr>
+                </thead>
+                <tbody>
+                 <tr th:each="o : ${ordenesRepuestos}">
+                    <td><a th:href="@{/detalleRepuesto(idR=${o.getRepuesto().getIdRepuesto()},idO=${orden.getIdOrden()})}" th:text ="${o.getRepuesto()}"></a></td>
+                    <td th:text="${o.getCantidad()}"></td>
+                    <td th:text="${o.getCantHoras()}" ></td>
+                    <td th:text="'$' + ${o.getRepuesto().getCosto()}"></td>
+                    <td th:text="'$' + ${o.getRepuesto().getCosto() * o.getCantidad()}"></td>
+                </tr>
+                <tr th:if="${orden.getTiempoTrabajado()>0}">
+                	<td>Mano de Obra</td>
+                	<td th:text="${orden.getTiempoTrabajado()}"></td>
+                	<td>N/A</td>
+                	<td th:text="'$' + ${orden.getPrecioHora()}"></td>
+                	<td  th:text="'$' + ${orden.getAdicionalManoObra()}"></td>
+                </tr>
+                <tr style="background-color:grey; color:white;">
+                	<td><b>PRECIO TOTAL A COBRAR</b></td>
+                	<td></td>
+                	<td></td>
+                	<td></td>
+                	<td  th:text="'$' + ${orden.getTotalOrden()}"></td>
+                </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Alta de Mecanicos</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    </head>
+
+    <body>
+        <a class="btn btn-warning" th:href="@{/home}" th:text="'VOLVER AL MENU'"></a>
+        <div style="text-align: center">
+            <h1>Cargar nuevo mecanico</h1>
+            <form action="/cargarMecanico" method="POST">
+                <label>NOMBRE/S</label>
+                <input type="text" th:field="${mecanico.nombre}" placeholder="nombre"/>
+                <label>APELLIDO/S</label>
+                <input type="text" th:field="${mecanico.apellido}" placeholder="apellido"/>
+                
+                <input class="btn btn-success" type="submit" value="CARGAR MECANICO"/>
+            </form>
+        </div>
+    </body>
+</html>

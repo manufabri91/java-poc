@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>LISTA DE CLIENTES</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    </head>
+
+    <body>
+    
+        <a class="btn btn-warning" th:href="@{/home}" th:text="'VOLVER AL MENU'"></a>
+        <div style="text-align: center">
+            <h1>Lista de Clientes</h1>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">NOMBRE</th>
+                        <th scope="col">APELLIDO</th>
+                        <th scope="col">DOMICILIO</th>
+                        <th scope="col">TELEFONO</th>
+                        <th scope="col">ORDENES</th>
+                        <th scope="col">BORRAR</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="c : ${clientes}">
+                        <td th:text="${c.getNombre()}"></td>
+                        <td th:text="${c.getApellido()}"></td>
+                        <td th:text="${c.getDireccion()}"></td>
+                        <td th:text="${c.getTelefono()}"></td>
+                        <td><a class="btn btn-success" th:href="@{/cargarOrden(id=${c.getIdCliente()})}" 
+                            th:text="'Nueva Orden'"></a>
+                            <a class="btn btn-info" th:href="@{/verOrdenesCli(id=${c.getIdCliente()})}" 
+                            th:text="'Ver Ordenes'"></a>
+                        </td>
+                        <td><a class="btn btn-danger" th:href="@{/borrarC(id=${c.getIdCliente()})}" 
+                                th:text="'Borrar Cliente'"></a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

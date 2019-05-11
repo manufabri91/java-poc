@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Taller Mecanico</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+        <div style="text-align: center">
+        <h1 style="text-align: center">Sistema de Taller Mecanico</h1>
+            <table style="margin: auto">
+                <tr>
+                	<td style="width: 35%">
+                    	<a class="btn btn-success btn-block" th:href="@{/nuevaOrden}" 
+                                                th:text="'Nueva Orden de Trabajo'"></a><br/><br/>
+                	</td>
+                </tr>
+                
+                <tr>
+                	<td style="width: 35%">
+                    	<a class="btn btn-info btn-block" th:href="@{/verOrdenes}" 
+                                                th:text="'Ver Ordenes de Trabajo'"></a><br/><br/>
+                	</td>
+                </tr>
+                
+                <tr>
+                	<td style="width: 35%">
+                    	<a class="btn btn-primary btn-block" th:href="@{/cargarCliente}" 
+                                                th:text="'Cargar Cliente'"></a><br/><br/>
+                	</td>
+                </tr>
+                <tr>
+                	<td style="width: 35%">
+                    	<a class="btn btn-info btn-block" th:href="@{/verClientes}" 
+                                                th:text="'Ver Clientes'"></a><br/><br/>
+                	</td>
+                </tr>
+                <tr>
+                	<td style="width: 35%">
+                    	<a class="btn btn-primary btn-block" th:href="@{/cargarMecanico}" 
+                                                th:text="'Cargar Mecanico'"></a><br/><br/>
+                	</td>
+                </tr>
+                <tr>
+                	<td style="width: 35%">
+                    	<a class="btn btn-info btn-block" th:href="@{/verMecanicos}" 
+                                                th:text="'Ver Mecanicos'"></a><br/><br/>
+                	</td>
+                </tr>
+                <tr>
+                	<td>
+                    	<a class="btn btn-info btn-block" th:href="@{/verRepuestos}" 
+                                                th:text="'Ver repuestos'"></a><br/><br/>
+                	</td>
+                </tr>
+
+            </table>
+        </div>
+    </body>
+</html>

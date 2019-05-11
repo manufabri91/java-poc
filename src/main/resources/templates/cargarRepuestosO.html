@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>CARGAR REPUESTOS A LA ORDEN</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    </head>
+
+    <body>
+        <a class="btn btn-warning" th:href="@{/home}" th:text="'VOLVER AL MENU'"></a>
+        <div style="text-align: center">
+            <h1>Agregar Repuestos a la orden</h1>
+            <form action="/cargarRepuestosO" method="POST">
+            	<input type="hidden" th:field="${orden.idOrden}"/>
+                <label>Repuesto usado</label>
+                <select th:field = "${ordenRepuesto.repuesto}">
+                        <option th:each="r: ${repuestos}" 
+                                th:value = "${r.getIdRepuesto()}"
+                                th:text = "${r.getDescripcion()}">
+                        </option>
+                </select>
+                <label>Cantidad usada</label>
+                <input type="number" th:field="${ordenRepuesto.cantidad}"/>
+                <label>Tiempo incurrido</label>
+                <input type="text" th:field="${ordenRepuesto.cantHoras}"/>
+                <input class="btn btn-primary" type="submit" value="CARGAR REPUESTO"/>
+               
+            </form>
+        </div>
+    </body>
+</html>

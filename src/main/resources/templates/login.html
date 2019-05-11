@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Taller Mecanico: Login</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+        <style>
+            
+        </style>
+    </head>
+
+    <body>
+		<div style="text-align: center">
+		    <h1>LOGIN USUARIO</h1>
+		    <form action="/login" method="POST">
+		        <label>USUARIO</label>
+		        <input type="text" th:field="${usuario.user}"/><br/>
+		        <label>CONTRASEÑA</label>
+		        <input type="password" th:field="${usuario.password}"/><br/>
+		        
+		        <input class="btn btn-success" type="submit" value="CONECTAR"/>
+		    </form>
+		</div>
+    </body>
+    
+</html>
